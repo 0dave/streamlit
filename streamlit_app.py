@@ -41,8 +41,31 @@ st.area_chart(chart_data)
 st.subheader('Bar of Number of pickups by hour')
 st.bar_chart(chart_data)
 
+# chart 4:area chart
+st.subheader('Bokeh of Number of pickups by hour')
 
-# chart 3: slider as filter for time (Some number in the range 0-23)
+chart_data = data[DATE_COLUMN].dt.hour.value_counts()
+
+import streamlit as st
+from bokeh.plotting import figure
+
+# Get counts of groups of 'class' and fill in 'year_month_id' column
+df2 = data({'count': df.groupby(data[DATE_COLUMN].dt.hour).size()}).reset_index()
+
+x = data[DATE_COLUMN].dt.hour
+y = df2['count'].tolist()
+
+
+p = figure(
+     title='simple line example',
+     x_axis_label='x',
+     y_axis_label='y')
+
+p.line(x, y, legend_label='Trend', line_width=2)
+
+st.bokeh_chart(p, use_container_width=True)
+
+# chart 0: slider as filter for time (Some number in the range 0-23)
 hour_to_filter = st.slider('hour', 0, 23, 17)  # min: 0h, max: 23h, default: 17h
 filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 # chart 3: map displays
