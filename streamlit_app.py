@@ -50,10 +50,10 @@ import streamlit as st
 from bokeh.plotting import figure
 
 # Get counts of groups of 'class' and fill in 'year_month_id' column
-df2 = data({'count': data.groupby(data[DATE_COLUMN].dt.hour).size()}).reset_index()
+df = data({'count': data.groupby(data[DATE_COLUMN].dt.hour).size()}).reset_index()
 
 x = data[DATE_COLUMN].dt.hour
-y = df2['count'].tolist()
+y = df['count'].tolist()
 
 
 p = figure(
