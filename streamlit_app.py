@@ -51,10 +51,10 @@ from bokeh.plotting import figure
 from pandas import DataFrame
 
 # Get counts of groups of 'class' and fill in 'year_month_id' column
-df = DataFrame({'count': data.groupby(data[DATE_COLUMN].dt.hour).size()}).reset_index()
+df1 = DataFrame({'count': data.groupby(data[DATE_COLUMN].dt.hour).size()}).reset_index()
 
 x = data[DATE_COLUMN].dt.hour
-y = df['count'].tolist()
+y = df1['count'].tolist()
 
 
 p = figure(
