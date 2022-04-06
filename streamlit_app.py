@@ -38,6 +38,10 @@ chart_data = data[DATE_COLUMN].dt.hour.value_counts()
 
 st.area_chart(chart_data)
 
+st.subheader('Bar of Number of pickups by hour')
+st.bar_chart(chart_data)
+
+
 # chart 3: slider as filter for time (Some number in the range 0-23)
 hour_to_filter = st.slider('hour', 0, 23, 17)  # min: 0h, max: 23h, default: 17h
 filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
