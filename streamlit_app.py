@@ -32,7 +32,9 @@ hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
 st.bar_chart(hist_values)
 
 # chart 2:area chart
-chart_data = pd.DataFrame(
+st.subheader('Area of Number of pickups by hour')
+
+chart_data = (
      data[DATE_COLUMN].dt.hour.value_counts(),
      data[DATE_COLUMN].dt.hour)
 
