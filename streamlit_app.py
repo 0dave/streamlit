@@ -35,8 +35,8 @@ st.bar_chart(hist_values)
 st.subheader('Area of Number of pickups by hour')
 
 chart_data = (
-     data[DATE_COLUMN].dt.hour.value_counts(),
-     data[DATE_COLUMN].dt.hour)
+     data[DATE_COLUMN].dt.hour,
+     data[DATE_COLUMN].dt.hour.value_counts())
 
 st.area_chart(chart_data)
 
