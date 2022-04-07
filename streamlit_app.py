@@ -48,6 +48,7 @@ chart_data = data[DATE_COLUMN].dt.hour.value_counts()
 
 import streamlit as st
 from bokeh.plotting import figure
+from bokeh.models import ColumnDataSource
 from pandas import DataFrame
 
 # Get counts of groups of 'class' and fill in 'year_month_id' column
