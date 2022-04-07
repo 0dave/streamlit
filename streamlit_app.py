@@ -56,15 +56,15 @@ df1 = DataFrame({'count': data.groupby(data[DATE_COLUMN].dt.hour).size()}).reset
 x = data[DATE_COLUMN].dt.hour
 y = df1['count'].tolist()
 
-
 p = figure(
      title='simple line example',
      x_axis_label='x',
      y_axis_label='y')
 
-p.line(x, y, legend_label='Trend', line_width=2)
+p.line(x='x', y='y', source=source, legend_label='Trend', line_width=2)
 
 st.bokeh_chart(p, use_container_width=True)
+
 
 # chart 0: slider as filter for time (Some number in the range 0-23)
 hour_to_filter = st.slider('hour', 0, 23, 17)  # min: 0h, max: 23h, default: 17h
