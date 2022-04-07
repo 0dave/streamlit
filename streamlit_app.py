@@ -56,6 +56,11 @@ df1 = DataFrame({'count': data.groupby(data[DATE_COLUMN].dt.hour).size()}).reset
 x = data[DATE_COLUMN].dt.hour
 y = df1['count'].tolist()
 
+df2 = {'x': x,'y': y}
+
+# create a ColumnDataSource by passing the dict
+source = ColumnDataSource(data=df2)
+
 p = figure(
      title='simple line example',
      x_axis_label='x',
