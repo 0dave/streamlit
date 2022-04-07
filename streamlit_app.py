@@ -46,7 +46,6 @@ st.subheader('Bokeh of Number of pickups by hour')
 
 chart_data = data[DATE_COLUMN].dt.hour.value_counts()
 
-import streamlit as st
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource
 from pandas import DataFrame
