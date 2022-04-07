@@ -59,14 +59,14 @@ y = df1['count'].tolist()
 df2 = {'x': x,'y': y}
 
 # create a ColumnDataSource by passing the dict
-source = ColumnDataSource(data=df2)
+sc = ColumnDataSource(df2)
 
 p = figure(
      title='simple line example',
      x_axis_label='x',
      y_axis_label='y')
 
-p.line(x='x', y='y', source=source, legend_label='Trend', line_width=2)
+p.line(x='x', y='y', source=sc, legend_label='Trend', line_width=2)
 
 st.bokeh_chart(p, use_container_width=True)
 
